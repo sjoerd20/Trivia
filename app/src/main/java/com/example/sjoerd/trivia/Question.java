@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Question {
 
     private String category, difficulty, question, questionType, correctAnswer;
-    private ArrayList<String> incorrectAnswers = new ArrayList<>();
+    private ArrayList<String> incorrectAnswers;
 
     public Question(String category, String difficulty, String question, String questionType, String correctAnswer, ArrayList<String> incorrectAnswers) {
         this.category = category;
