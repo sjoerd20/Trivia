@@ -1,33 +1,36 @@
 package com.example.sjoerd.trivia;
 
+import java.util.ArrayList;
+
 public class Question {
 
-    String Category, Difficulty, question, questionType, correct_answer, incorrect_answers;
+    private String category, difficulty, question, questionType, correctAnswer;
+    private ArrayList<String> incorrectAnswers = new ArrayList<>();
 
-    public Question(String category, String difficulty, String question, String questionType, String correct_answer, String incorrect_answers) {
-        Category = category;
-        Difficulty = difficulty;
+    public Question(String category, String difficulty, String question, String questionType, String correctAnswer, ArrayList<String> incorrectAnswers) {
+        this.category = category;
+        this.difficulty = difficulty;
         this.question = question;
         this.questionType = questionType;
-        this.correct_answer = correct_answer;
-        this.incorrect_answers = incorrect_answers;
+        this.correctAnswer = correctAnswer;
+        this.incorrectAnswers = incorrectAnswers;
     }
 
     // getters and setters
     public String getCategory() {
-        return Category;
+        return category;
     }
 
     public void setCategory(String category) {
-        Category = category;
+        this.category = category;
     }
 
     public String getDifficulty() {
-        return Difficulty;
+        return difficulty;
     }
 
     public void setDifficulty(String difficulty) {
-        Difficulty = difficulty;
+        this.difficulty = difficulty;
     }
 
     public String getQuestion() {
@@ -46,19 +49,19 @@ public class Question {
         this.questionType = questionType;
     }
 
-    public String getCorrect_answer() {
-        return correct_answer;
+    public String getCorrectAnswer() {
+        return correctAnswer;
     }
 
-    public void setCorrect_answer(String correct_answer) {
-        this.correct_answer = correct_answer;
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer;
     }
 
-    public String getIncorrect_answers() {
-        return incorrect_answers;
+    public ArrayList<String> getIncorrectAnswers() {
+        return incorrectAnswers;
     }
 
-    public void setIncorrect_answers(String incorrect_answers) {
-        this.incorrect_answers = incorrect_answers;
+    public void setIncorrectAnswers(ArrayList<String> incorrectAnswers) {
+        this.incorrectAnswers = incorrectAnswers;
     }
 }

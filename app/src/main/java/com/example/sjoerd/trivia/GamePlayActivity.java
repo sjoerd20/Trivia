@@ -21,6 +21,8 @@ public class GamePlayActivity extends AppCompatActivity implements TriviaRequest
     @Override
     public void gotQuestions(ArrayList<Question> questions) {
         Toast.makeText(this, "Questions received!", Toast.LENGTH_LONG).show();
+
+
     }
 
     @Override
