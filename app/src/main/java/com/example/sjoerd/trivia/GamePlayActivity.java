@@ -1,5 +1,6 @@
 package com.example.sjoerd.trivia;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -94,7 +95,11 @@ public class GamePlayActivity extends AppCompatActivity implements TriviaRequest
 
         if (currentQuestion == null) {
             Toast.makeText(getApplicationContext(), "All questions answered", Toast.LENGTH_LONG).show();
-            // end game
+
+            // end game and go to HighscoreActivity
+            Intent intent = new Intent(GamePlayActivity.this, HighscoreActivity.class);
+            intent.putExtra("score", trivia.getPoints());
+            startActivity(intent);
         }
 
         // update ui
