@@ -8,6 +8,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.Volley;
+
 import java.util.ArrayList;
 
 public class GamePlayActivity extends AppCompatActivity implements TriviaRequest.Callback {
@@ -29,7 +35,7 @@ public class GamePlayActivity extends AppCompatActivity implements TriviaRequest
 
     @Override
     public void gotQuestions(ArrayList<Question> questions) {
-        Toast.makeText(this, "Questions received!", Toast.LENGTH_LONG).show();
+        // Toast.makeText(this, "Questions received!", Toast.LENGTH_LONG).show();
         this.questions = questions;
 
         // set up listeners for True/False buttons
@@ -66,20 +72,20 @@ public class GamePlayActivity extends AppCompatActivity implements TriviaRequest
             String correctAnswer = trivia.getCurrentQuestion().getCorrectAnswer();
             if (isButtonTrue) {
                 if (correctAnswer.equals("True")) {
-                    Toast.makeText(getApplicationContext(), "True: well done!", Toast.LENGTH_LONG).show();
+                    // Toast.makeText(getApplicationContext(), "True: well done!", Toast.LENGTH_LONG).show();
                     trivia.answeredSuccesfully();
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "False: you failed!", Toast.LENGTH_LONG).show();
+                    // Toast.makeText(getApplicationContext(), "False: you failed!", Toast.LENGTH_LONG).show();
                 }
             }
             else {
                 if (correctAnswer.equals("False")) {
-                    Toast.makeText(getApplicationContext(), "False: well done!", Toast.LENGTH_LONG).show();
+                    // Toast.makeText(getApplicationContext(), "False: well done!", Toast.LENGTH_LONG).show();
                     trivia.answeredSuccesfully();
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "True: you failed!", Toast.LENGTH_LONG).show();
+                    // Toast.makeText(getApplicationContext(), "True: you failed!", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -88,18 +94,14 @@ public class GamePlayActivity extends AppCompatActivity implements TriviaRequest
         }
     }
 
-
     // get next question from Trivia and update UI
     private void showNextQuestion() {
         Question currentQuestion = trivia.getNextQuestion();
 
         if (currentQuestion == null) {
-            Toast.makeText(getApplicationContext(), "All questions answered", Toast.LENGTH_LONG).show();
+            // Toast.makeText(getApplicationContext(), "All questions answered", Toast.LENGTH_SHORT).show();
 
-            // end game and go to HighscoreActivity
-            Intent intent = new Intent(GamePlayActivity.this, HighscoreActivity.class);
-            intent.putExtra("score", trivia.getPoints());
-            startActivity(intent);
+            goToHighscoreActivity();
         }
 
         // update ui
@@ -108,5 +110,12 @@ public class GamePlayActivity extends AppCompatActivity implements TriviaRequest
             TextView questionView = findViewById(R.id.questionTextView);
             questionView.setText(question);
         }
+    }
+
+    // end game and go to HighscoreActivity
+    private void goToHighscoreActivity() {
+        Intent intent = new Intent(GamePlayActivity.this, HighscoreActivity.class);
+        intent.putExtra("score", trivia.getPoints());
+        startActivity(intent);
     }
 }

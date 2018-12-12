@@ -81,7 +81,6 @@ public class TriviaRequest implements Response.Listener<JSONObject>, Response.Er
 
         RequestQueue queue = Volley.newRequestQueue(context);
         String url = "https://opentdb.com/api.php?amount=" + nQuestions + "&type=" + typeOfQuestion;
-
         try {
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null, this, this);
             queue.add(jsonObjectRequest);
