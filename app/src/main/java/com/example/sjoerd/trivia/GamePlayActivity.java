@@ -3,6 +3,7 @@ package com.example.sjoerd.trivia;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -108,7 +109,7 @@ public class GamePlayActivity extends AppCompatActivity implements TriviaRequest
         else {
             String question = currentQuestion.getQuestion();
             TextView questionView = findViewById(R.id.questionTextView);
-            questionView.setText(question);
+            questionView.setText(Html.fromHtml((String) question).toString());
         }
     }
 
