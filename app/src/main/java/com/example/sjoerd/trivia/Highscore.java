@@ -11,9 +11,10 @@ public class Highscore implements Comparable<Highscore> {
         this.score = score;
     }
 
+    // method to sort highscores based on highest scores
     @Override
     public int compareTo(@NonNull Highscore other) {
-        return score.compareTo(other.score);
+        return other.score.compareTo(score);
     }
 
     public String getName() {
