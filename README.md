@@ -11,5 +11,5 @@ After sending a user's highscores, the highscores are retrieved from a server to
 
 ![homescreen](doc/homescreen.PNG)
 ![questionscreen](doc/questionscreen.PNG)
-![highscorescreen1](doc/highscoresceen1.PNG)
-![highscorescreen2](doc/highscoresceen2.PNG)
+![highscorescreen1](doc/highscoresreen1.PNG)
+![highscorescreen2](doc/highscoresreen2.PNG)
